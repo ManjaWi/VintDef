@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>VintDef</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+		<link rel="stylesheet" type="text/css" href="stylesheet.css">
+		<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+		<script src="forminput.js"></script>
+		<script src="https://d3js.org/d3.v4.min.js"></script>
+		<script src="fisheye2.js"></script>
+	</head>
+	<body>
+		<header>
+			<nav class="navbar navbar-dark bg-dark">
+				<span class="navbar-brand mb-0 h1">VintDef</span>
+			</nav>
+		</header>
+		<main>
+			<div  id="menu" style="background-color: #E6E6E6">
+				<div class="container-fluid m-0">
+					<div class="row">
+						<form name= "form" id="form" class="col-lg-4 col-md-4 col-sm-12 bg-light p-4" onSubmit="server()">
+							<h1>Collection</h1>
+							<div class="container m-0">
+							  <div class="form-group">
+								<div class="form-check">
+								  <input type="checkbox" class="form-check-input" id="check-34" name="check-34">
+								  <label class="form-check-label pl-2" for="check-34">34 Definitions of intelligence from the literature to agree upon (AGISI.org survey)</label>
+								</div>
+								<div class="form-check">
+								  <input type="checkbox" class="form-check-input" id="check-71" name="check-71">
+								  <label class="form-check-label pl-2" for="check-71">71 Definitions of intelligence from the paper [Legg & Hutter, 2007]</label>
+								</div>
+								<div class="form-check">
+								  <input type="checkbox" class="form-check-input" id="check-125" name="check-125">
+								  <label class="form-check-label pl-2" for="check-125">125 Experts' suggested definitions of human intelligence (AGISI.org survey)</label>
+								</div>
+								<div class="form-check">
+								  <input type="checkbox" class="form-check-input" id="check-213" name="check-213">
+								  <label class="form-check-label pl-2" for="check-213">213 Experts' suggested definitions of machine intelligence (AGISI.org survey)</label>
+								</div>
+							  </div>
+							</div>
+
+							<hr>
+
+							<h1>Visualization</h1>
+							<div class="container m-0">
+								<h2>Show me a...</h2>
+								<div class="container m-0">
+									<div class="custom-control custom-radio">
+										<input type="radio" class="custom-control-input" id="customControlValidation2" name="radio-stacked" required>
+										<label class="custom-control-label pl-2" for="customControlValidation2">Graph</label>
+									</div>
+									<div class="custom-control custom-radio mb-3">
+										<input type="radio" class="custom-control-input" id="customControlValidation3" name="radio-stacked" required>
+										<label class="custom-control-label pl-2" for="customControlValidation3">Chart</label>
+									</div>
+								</div>
+								<h2>
+									<label for="numberrange">Minimum number of occurences per word: </label>
+								</h2>
+								<div class="form-group">
+									<div class="row">
+										<div class="col-lg-11 col-md-11 col-sm-11">
+											<input type="range" name="slider" class="custom-range w-100" min="1" max="30" step="1" id="numberrange" oninput="rangeout.value = ' ['+numberrange.value+']'">
+										</div>
+										<div class="col-lg-1 col-md-1 col-sm-1">
+											<h2>
+												<output name="number-range-out" id="rangeout"> [30]</output>
+											</h2>
+										</div>
+									</div>
+								</div>
+								<h2>Show me only...</h2>
+								<div class="form-group">
+									<div class="form-check">
+										<input type="checkbox" class="form-check-input" id="check-nouns" name="check-nouns">
+										<label class="form-check-label pl-2" for="check-nouns">Nouns</label>
+									</div>
+									<div class="form-check">
+										<input type="checkbox" class="form-check-input" id="check-verbs" name="check-verbs">
+										<label class="form-check-label pl-2" for="check-verbs">Verbs</label>
+									</div>
+									<div class="form-check">
+										<input type="checkbox" class="form-check-input" id="check-adjectives" name="check-adjectives">
+										<label class="form-check-label pl-2" for="check-adjectives">Adjectives</label>
+									</div>
+								</div>
+
+							</div>
+
+							<button type="button" class="btn btn-primary btn-block" onclick="server()">Show</button>
+						</form>
+						<div class="col-lg-8 col-md-8 col-sm-12" id="pic">
+							
+						</div>
+					</div>
+				</div>
+			</div>
+			</br>
+		</main>
+		<footer/> 
+	</body>
+</html>

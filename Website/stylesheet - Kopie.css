@@ -1,0 +1,146 @@
+h1 {
+    font-size: 20px;
+    color: darkblue;
+}
+
+h2 {
+    font-size: 17px;
+    color: midnightblue;
+    font-style: italic;
+}
+
+h3 {
+    font-size: 14px;
+    color: midnightblue;
+}
+
+header,
+body {
+    margin: 0;
+    height: 100%;
+    overflow: hidden;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+main,
+.menu {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+form {
+    width: 100vw;
+    height: 100vh;
+    overflow-y: scroll;
+}
+
+#swbutton {
+    margin-bottom: 20px;
+}
+
+
+/* style of the nodes and links*/
+
+.links line {
+    stroke: #999;
+    stroke-opacity: 0.6;
+}
+
+.nodes circle {
+    stroke: #fff;
+    stroke-width: 1.5px;
+}
+
+.axis text {
+    font: 10px sans-serif;
+}
+
+.axis path,
+.axis line {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+}
+
+.bar {
+    fill: steelblue;
+    fill-opacity: .9;
+}
+
+.x.axis path {
+    display: none;
+}
+
+#pic {
+    width: 100vw;
+    height: calc(100vh - 50px);
+}
+
+.loader {
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid #007bff;
+    width: 120px;
+    height: 120px;
+    position: absolute;
+    top: 45%;
+    left: 45%;
+    transform: translate(-50%, -50%);
+    -webkit-animation: spin 2s linear infinite;
+    /* Safari */
+    animation: spin 2s linear infinite;
+}
+
+
+/* Safari */
+
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.sidenav {
+    width: wrap;
+    position: fixed;
+    z-index: 1;
+    top: 20px;
+    right: 10px;
+    background: steelblue;
+    overflow-x: hidden;
+    padding: 8px, 8px, 8px, 8px;
+    height: 100%;
+}
+
+.sidenav a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 20px;
+    color: rgb(238, 235, 200);
+    display: block;
+}
+
+.sidenav a:hover {
+    color: #cbdff0;
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {
+        padding-top: 15px;
+    }
+    .sidenav a {
+        font-size: 18px;
+    }
+}
