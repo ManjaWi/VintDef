@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>VIntDef</title>
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!-- change link to stylesheet -->
+    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <!-- change link to forminput.js -->
+    <script src="forminput.js"></script>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="https://d3js.org/d3-color.v1.min.js"></script>
+    <script src="https://d3js.org/d3-dispatch.v1.min.js"></script>
+    <script src="https://d3js.org/d3-ease.v1.min.js"></script>
+    <script src="https://d3js.org/d3-interpolate.v1.min.js"></script>
+    <script src="https://d3js.org/d3-selection.v1.min.js"></script>
+    <script src="https://d3js.org/d3-timer.v1.min.js"></script>
+    <script src="https://d3js.org/d3-transition.v1.min.js"></script>
+    <script src="https://d3js.org/d3-drag.v1.min.js"></script>
+    <script src="https://d3js.org/d3-zoom.v1.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+</head>
+
+<body>
+    <div>
+
+    </div>
+    <main>
+        <div id="menu">
+            <div class="container-fluid m-0">
+                <div class="row">
+                    <div class="col" style="position: relative; padding-left: 15px; padding-top: 15px;">
+
+                        <div class="row">
+                            <img src="Logo1.5.png" style="width: 150px; height: 168px" alt="VIntDef">
+                        </div>
+                        
+
+                        <div class="button-box" class="row">
+                            <!-- Trigger the modal with a button -->
+
+                            <div class="left">
+                                <div type="button" style="text-align: center; color: rgb(255, 255, 255);" class="hex-button" data-toggle="modal" data-target="#Modal1">Click me!</div>
+                            </div>
+                            <div class="right">
+                                <div type="button" class="hex-button" data-toggle="modal" data-target="#Modal2"></div>
+                            </div>
+                            <div class="left">
+                                <div type="button" class="hex-button" data-toggle="modal" data-target="#Modal3"></div>
+                            </div>
+                            <div class="right">
+                                <div type="button" class="hex-button" data-toggle="modal" data-target="#Modal4"></div>
+                            </div>
+                        </div>
+
+                        <div style="position: absolute; bottom: 5px; color: #114d69; font-size: 20px;">
+                            <a href="http://www.agisi.org/index.html#top" class="menu">AGISI</a><br>
+                            <a type="button" data-toggle="modal" data-target="#ModalDefinitions" onclick="definitions()" id="buttonDefinitions">Definitions</a><br>
+                            <a type="button" data-toggle="modal" data-target="#ModalHelp">Help</a><br>
+                            <a type="button" data-toggle="modal" data-target="#ModalImpressum">Impressum</a>
+                        </div>
+                        
+                    </div>
+
+                    <div class="col-lg-10 col-md-7 col-sm-12" id="pic" transform="scale(0.25)">
+
+                        <!-- Burgermenu (vanished when graph is generated)
+
+                        <nav class="site-nav" style="width: 300px; z-index: 2;">
+                            <div class="menu-toggle">
+                                <div class="hamburger"></div>
+                            </div>
+                            <ul class="open desktop">
+                                <li><a href="http://www.agisi.org/index.html#top">AGISI</a></li>
+                                <li><a href="">Definitions</a></li>
+                                <li><a href="">Help</a></li>
+                                <li><a type="button" data-toggle="modal" data-target="#ModalImpressum">Impressum</a></li>
+                            </ul>
+                        </nav>
+                        -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        </br>
+    </main>
+
+    <!-- Modal 1 -->
+    <div id="Modal1" class="modal fade" role="dialog" tabindex="-1">
+        <div class="modal-dialog" role="document">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Collection</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        <form name="form1" id="form" onSubmit="server()">
+                            <div class="container m-0">
+                                <div class="form-group">
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input" id="check-34" name="check-34">
+                                        <label class="form-check-label pl-2" for="check-34">34 Definitions of intelligence from the literature to agree upon (AGISI.org survey)</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input" id="check-71" name="check-71">
+                                        <label class="form-check-label pl-2" for="check-71">71 Definitions of intelligence from the paper [Legg & Hutter, 2007]</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input" id="check-125" name="check-125">
+                                        <label class="form-check-label pl-2" for="check-125">125 Experts' suggested definitions of human intelligence (AGISI.org survey)</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input" id="check-213" name="check-213">
+                                        <label class="form-check-label pl-2" for="check-213">213 Experts' suggested definitions of machine intelligence (AGISI.org survey)</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default w-100 text-center" data-dismiss="modal" data-toggle="modal" data-target="#Modal2">Next</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 2 -->
+    <div id="Modal2" class="modal fade" role="dialog" tabindex="-1">
+        <div class="modal-dialog" role="document">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Visualisation</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        <form name="form2" id="form" onSubmit="server()">
+                            <div class="container m-0">
+                                <div class="custom-control custom-radio">
+                                    <input type="radio" class="custom-control-input" id="customControlValidation2" name="radio-stacked" onclick="resetradio(this)" required>
+                                    <label class="custom-control-label pl-2" for="customControlValidation2">Graph</label>
+                                </div>
+                                <div class="custom-control custom-radio">
+                                    <input type="radio" class="custom-control-input" id="customControlValidation3" name="radio-stacked" onclick="resetradio(this)" required>
+                                    <label class="custom-control-label pl-2" for="customControlValidation3">Chart</label>
+                                </div>
+                                <div class="form-check pl-5 mt-1">
+                                    <input style="color: darkcyan;" type="checkbox" class="form-check-input" id="check-chart" name="check-chart">
+                                    <label class="form-check-label pl-2" for="check-chart">Show only 20 most common words</label>
+                                </div>
+                            </div>
+                        </form>
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default w-100 text-center" data-dismiss="modal" data-toggle="modal" data-target="#Modal3">Next</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 3 -->
+    <div id="Modal3" class="modal fade" role="dialog" tabindex="-1">
+        <div class="modal-dialog" role="document">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Minimum number of occurence</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        <form name="form3" id="form" onSubmit="server()">
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-lg-11 col-sm-11 col-md-11">
+                                        <h2>
+                                            <label for="numberrange">Minimum number of occurences per word: </label>
+                                        </h2>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-10 col-md-10 col-sm-10">
+                                        <input type="range" name="slider" class="custom-range w-100" min="1" max="30" step="1" id="numberrange" oninput="rangeout.value = ' ['+numberrange.value+']'">
+                                    </div>
+                                    <div class="col-lg-2 col-md-2 col-sm-2">
+                                        <h2>
+                                            <output name="number-range-out" id="rangeout"> [30]</output>
+                                        </h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default w-100 text-center" data-dismiss="modal" data-toggle="modal" data-target="#Modal4">Next</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 4 -->
+    <div id="Modal4" class="modal fade" role="dialog" tabindex="-1">
+        <div class="modal-dialog" role="document">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Word groups</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        <form name="form4" id="form" onSubmit="server()">
+                            <div class="form-group">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="check-nouns" name="check-nouns">
+                                    <label class="form-check-label pl-2" for="check-nouns">Nouns</label>
+                                </div>
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="check-verbs" name="check-verbs">
+                                    <label class="form-check-label pl-2" for="check-verbs">Verbs</label>
+                                </div>
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="check-adjectives" name="check-adjectives">
+                                    <label class="form-check-label pl-2" for="check-adjectives">Adjectives</label>
+                                </div>
+                            </div>
+                        </form>
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="swbutton" onclick="server()" class="btn btn-primary btn-block w-100 text-center" data-dismiss="modal">Show</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Immpressum -->
+    <div id="ModalImpressum" class="modal fade" role="dialog" tabindex="-1">
+        <div class="modal-dialog modal-lg" role="document">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Legal Disclosure</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class='impressum'>
+                        <p>Information in accordance with Section 5 TMG</p>
+                        <p>Prof. Dr. Dagmar Monett, HWR Berlin <br> Alt-Friedrichsfelde 60<br> 10315 Berlin <br>
+                        </p>
+                        <p><strong>Contact Information:</strong> <br> Telephone: (49) (0)30-30877-2420<br> E-Mail: <a href='mailto:dagmar@monettdiaz.com'>dagmar@monettdiaz.com</a></br>
+                            Internet address: <a href="http://monettdiaz.com" target="_blank">http://monettdiaz.com</a><br>
+                        </p>
+                        <p><strong>Disclaimer: </strong><br><br><strong>Accountability for content</strong><br><br> The contents of our pages have been created with the utmost care. However, we cannot guarantee the contents'
+                            accuracy, completeness or topicality. According to statutory provisions, we are furthermore responsible for 
+                            our own content on these web pages. In this matter, please note that we are not obliged to monitor 
+                            the transmitted or saved information of third parties, or investigate circumstances pointing to illegal activity. 
+                            Our obligations to remove or block the use of information under generally applicable laws remain unaffected by this as per 
+                            §§ 8 to 10 of the Telemedia Act (TMG).<br>
+                            <br><strong>Accountability for links</strong><br><br> Responsibility for the content of 
+                            external links (to web pages of third parties) lies solely with the operators of the linked pages. No violations were 
+                            evident to us at the time of linking. Should any legal infringement become known to us, we will remove the respective 
+                            link immediately.<br><br>Copyright<br> Our web pages and their contents are subject to German copyright law. Unless 
+                            expressly permitted by law, every form of utilizing, reproducing or processing 
+                            works subject to copyright protection on our web pages requires the prior consent of the respective owner of the rights. 
+                            Individual reproductions of a work are only allowed for private use. 
+                            The materials from these pages are copyrighted and any unauthorized use may violate copyright laws.
+                            
+                        </p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <p><i>Source: </i><a href="http://www.translate-24h.de" target="_blank">Übersetzungsbüro translate-24h.de</a> <br><br></p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Help -->
+    <div id="ModalHelp" class="modal fade" role="dialog" tabindex="-1">
+        <div class="modal-dialog modal-lg" role="document">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header" style="align-content: center;">
+                    <img src="help_logo.png" style="width: fit-content; height: 60px;" alt="VIntDef">
+                    <!--<h4 class="modal-title">VIntDef</h4>-->
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body" style="font-size: 20px;">
+                    <p>The goal of VIntDef (Visualising Intelligence Definitions) is to get a better understanding of intelligence. For that purpose several definitions of intelligence were collected and visualised. The Definitions were taken from a survey
+                        from the Artificial General Intelligence Sentinel Initiative (you can reach their website over the link in the menu) and the paper “A collection of Definitions of Intelligence” from Shane Legg and Marcus Hutter from 2007. The definitions
+                        are splitted into four different collections, the 71 from the paper, 34 definition that were part of the AGISI survey, 125 definitions of human intelligence and 213 definitions of machine intelligence, so that a total of 443 definitions
+                        are analyzed. Two types of visualization are used. One is a graph, the other a chart. You can filter the definitions by clicking the top hexagon. The graph consists of nodes and edges. Each node represents a word. The bigger the
+                        node is the more often the word appears in the chosen definitions. The edges connect the nodes which stand next to each other in a definition. The thicker the edge is the more often the words appear next to each other. The chart
+                        shows the number of occurence per word.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Definitions -->
+    <div id="ModalDefinitions" class="modal fade" role="dialog" tabindex="-1">
+        <div class="modal-dialog modal-lg" role="document">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header" style="align-content: center;">
+                    <h4 class="modal-title">Definitions</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body" id="definitions" style="font-size: 20px;">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<!-- Burgermenü 
+<script>
+    $('.menu-toggle').click(function() {
+        $('ul').toggleClass('opening');
+        $(this).toggleClass('open');
+    })
+</script>
+-->
+
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+</html>

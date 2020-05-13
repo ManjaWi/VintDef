@@ -1,0 +1,21 @@
+{
+  "name": "vintdef",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "d3": "^5.7.0",
+    "d3-zoom": "^1.7.3",
+    "express": "^4.17.1",
+    "index.js": "0.0.3",
+    "jquery": "^3.4.1",
+    "python-shell": "^1.0.6"
+  }
+}
